@@ -1,4 +1,4 @@
-package com.kotlin.note.moxy
+package com.kotlin.note.example_1
 
 import android.os.Bundle
 import android.widget.LinearLayout

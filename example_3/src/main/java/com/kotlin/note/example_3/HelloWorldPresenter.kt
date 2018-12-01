@@ -1,9 +1,10 @@
-package com.kotlin.note.example_1
+package com.kotlin.note.moxy
 
 import android.annotation.SuppressLint
 import android.os.AsyncTask
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
+import com.kotlin.note.example_3.R
 
 @InjectViewState
 class HelloWorldPresenter : MvpPresenter<HelloWorldView>() {
@@ -12,14 +13,19 @@ class HelloWorldPresenter : MvpPresenter<HelloWorldView>() {
         HelloWorldTask().execute()
     }
 
-    fun sleep() {
-        Thread.sleep(1000)
+    fun sleepTwoSecond() {
+        Thread.sleep(2000)
+    }
+
+    fun onDismissMessage() {
+        viewState.hideMessage()
     }
 
     @SuppressLint("StaticFieldLeak")
-    inner class HelloWorldTask : AsyncTask<Void, Void, Void>() {
+    inner class HelloWorldTask : AsyncTask<Void, Int, Void>() {
+
         override fun doInBackground(vararg params: Void?): Void? {
-            sleep()
+            sleepTwoSecond()
             return null
         }
 

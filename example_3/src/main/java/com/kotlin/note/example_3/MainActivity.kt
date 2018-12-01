@@ -2,10 +2,12 @@ package com.kotlin.note.example_3
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.view.View
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.kotlin.note.moxy.HelloWorldPresenter
 import com.kotlin.note.moxy.HelloWorldView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : MvpAppCompatActivity(), HelloWorldView {
 
@@ -32,6 +34,18 @@ class MainActivity : MvpAppCompatActivity(), HelloWorldView {
 
     override fun hideMessage() {
         messageDialog?.dismiss()
+    }
+
+    override fun showTimer() {
+        timer.visibility = View.VISIBLE
+    }
+
+    override fun hideTimer() {
+        timer.visibility = View.GONE
+    }
+
+    override fun setTimer(value: Int) {
+        timer.text = "$value"
     }
 
     override fun onDestroy() {

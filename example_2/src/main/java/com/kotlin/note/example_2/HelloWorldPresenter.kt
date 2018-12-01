@@ -25,9 +25,9 @@ class HelloWorldPresenter : MvpPresenter<HelloWorldView>() {
         }
 
         override fun doInBackground(vararg params: Void?): Void? {
-            for (i: Int in 5 downTo 1) {
-                publishProgress(i)
+            for (i: Int in 5 downTo 0) {
                 sleepSecond()
+                publishProgress(i)
             }
             return null
         }

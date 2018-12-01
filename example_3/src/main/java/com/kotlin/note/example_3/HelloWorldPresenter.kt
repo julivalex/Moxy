@@ -13,8 +13,8 @@ class HelloWorldPresenter : MvpPresenter<HelloWorldView>() {
         HelloWorldTask().execute()
     }
 
-    fun sleepTwoSecond() {
-        Thread.sleep(2000)
+    fun sleepSecond() {
+        Thread.sleep(1000)
     }
 
     fun onDismissMessage() {
@@ -24,12 +24,24 @@ class HelloWorldPresenter : MvpPresenter<HelloWorldView>() {
     @SuppressLint("StaticFieldLeak")
     inner class HelloWorldTask : AsyncTask<Void, Int, Void>() {
 
+        override fun onPreExecute() {
+            viewState.showTimer()
+        }
+
         override fun doInBackground(vararg params: Void?): Void? {
-            sleepTwoSecond()
+            for (i: Int in 5 downTo 0) {
+                sleepSecond()
+                publishProgress(i)
+            }
             return null
         }
 
+        override fun onProgressUpdate(vararg values: Int?) {
+            values[0]?.let { viewState.setTimer(it) }
+        }
+
         override fun onPostExecute(result: Void?) {
+            viewState.hideTimer()
             viewState.showMessage(R.string.hello_world)
         }
     }

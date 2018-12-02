@@ -1,4 +1,4 @@
-package com.kotlin.note.example_9
+package com.kotlin.note.example_7
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

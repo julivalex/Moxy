@@ -1,10 +1,11 @@
-package com.kotlin.note.example_9
+package com.kotlin.note.example_7
 
 import android.os.Bundle
 import android.util.Log
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : MvpAppCompatActivity(), DetailsView {
